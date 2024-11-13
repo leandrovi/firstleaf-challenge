@@ -1,3 +1,7 @@
+import React from "react";
+import { HeadFC, Link } from "gatsby";
+
+import SEO from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -5,8 +9,6 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Link } from "gatsby";
-import React from "react";
 
 const HomePage = (): JSX.Element => (
   <main className="min-h-screen bg-background text-foreground p-8 flex items-center justify-center">
@@ -44,3 +46,5 @@ const HomePage = (): JSX.Element => (
 );
 
 export default HomePage;
+
+export const Head: HeadFC = () => <SEO />;

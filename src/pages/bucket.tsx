@@ -1,5 +1,8 @@
 import React from "react";
-import ThreeButtons from "../components/TheBucket";
+import { HeadFC } from "gatsby";
+
+import ThreeButtons from "@/components/TheBucket";
+import SEO from "@/components/Seo";
 
 const BucketPage = (): JSX.Element => (
   <div>
@@ -10,3 +13,5 @@ const BucketPage = (): JSX.Element => (
 );
 
 export default BucketPage;
+
+export const Head: HeadFC = () => <SEO />;

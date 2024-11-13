@@ -1,8 +1,10 @@
 import React from "react";
+import { HeadFC } from "gatsby";
 
 import Header from "@/components/Header";
 import ProductGrid from "@/components/ProductGrid";
 import PromoFilter from "@/components/PromoFilter";
+import SEO from "@/components/Seo";
 
 const Promo = (): JSX.Element => {
   return (
@@ -27,3 +29,5 @@ const Promo = (): JSX.Element => {
 };
 
 export default Promo;
+
+export const Head: HeadFC = () => <SEO />;

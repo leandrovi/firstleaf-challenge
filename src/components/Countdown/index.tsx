@@ -1,5 +1,7 @@
 import React from "react";
+
 import { cn } from "@/lib/utils";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 type CountdownProps = {
   seconds: number;
@@ -16,6 +18,8 @@ export default function Countdown({
   customClass = "",
   onFinish = () => {},
 }: CountdownProps) {
+  const { track } = useAnalytics();
+
   const [seconds, setSeconds] = React.useState(initialSeconds);
   const [isBlinking, setIsBlinking] = React.useState(false);
 
@@ -38,11 +42,17 @@ export default function Countdown({
       });
     }, 1000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      track("promoCountdownStopped", { challenge: "Promo", seconds });
+    };
   }, [loop, initialSeconds]);
 
   React.useEffect(() => {
-    if (seconds === 0) onFinish();
+    if (seconds === 0) {
+      track("promoCountdownFinished", { challenge: "Promo", seconds: 0 });
+      onFinish();
+    }
   }, [seconds]);
 
   const containerClasses = cn(

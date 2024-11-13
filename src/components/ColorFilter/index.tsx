@@ -9,6 +9,7 @@ import {
   SelectGroup,
   SelectItem,
 } from "../ui/select";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 type ColorFilterProps = {
   colors: Array<{
@@ -20,11 +21,13 @@ type ColorFilterProps = {
 
 const ColorFilter = ({ colors, onColorChange }: ColorFilterProps) => {
   const { state } = useProducts();
+  const { track } = useAnalytics();
   const [selectedColor, setSelectedColor] = React.useState<string | null>(null);
 
   const handleColorChange = (color: string) => {
     setSelectedColor(color);
     onColorChange(color);
+    track("promoFilterColorSelected", { challenge: "Promo", color });
   };
 
   return (

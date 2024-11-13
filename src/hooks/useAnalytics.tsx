@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 
 declare global {
   interface Window {
-    analytics: any;
+    analytics: {
+      track: (eventName: string, params: Record<string, any>) => void;
+    };
   }
 }
 
 export const useAnalytics = () => {
-  const [analytics, setAnalytics] = useState(null);
+  const [analytics, setAnalytics] = useState<Window["analytics"] | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -15,5 +17,9 @@ export const useAnalytics = () => {
     }
   }, []);
 
-  return analytics;
+  const track = (eventName: string, params: Record<string, any>) => {
+    analytics?.track(eventName, { ...params });
+  };
+
+  return { track };
 };

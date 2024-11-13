@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql, HeadFC, Link } from "gatsby";
 import {
   Globe2,
   Landmark,
@@ -17,13 +17,14 @@ import { Button } from "@/components/ui/button";
 
 import worldImage from "../images/world.png";
 import type { Country } from "../types/Country";
+import SEO from "@/components/Seo";
 
 const CountryTemplate = ({ data }: { data: { country: Country } }) => {
   const [map, setMap] = React.useState(null);
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY as string,
+    googleMapsApiKey: process.env.GATSBY_GOOGLE_MAPS_API_KEY as string,
   });
 
   const country = data.country;
@@ -92,7 +93,7 @@ const CountryTemplate = ({ data }: { data: { country: Country } }) => {
   }, []);
 
   return (
-    <main className="dark bg-[#262626] min-h-screen flex flex-col relative w-full text-primary gap-4">
+    <main className="dark bg-[#262626] min-h-screen flex flex-col relative w-full text-primary gap-4 px-8">
       <CountriesHeader />
 
       <div className="absolute bottom-0 left-0 right-0 top-[30vh]">
@@ -286,3 +287,5 @@ export const query = graphql`
 `;
 
 export default CountryTemplate;
+
+export const Head: HeadFC = () => <SEO />;

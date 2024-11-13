@@ -1,10 +1,11 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, HeadFC } from "gatsby";
 import worldImage from "../../images/world.png";
 
 import { CountriesResponse } from "@/hooks/useCountries";
 import CountriesList from "@/components/CountriesList";
 import CountriesHeader from "@/components/CountriesHeader";
+import SEO from "@/components/Seo";
 
 interface CountriesPageProps {
   data: CountriesResponse;
@@ -88,3 +89,5 @@ export const query = graphql`
 `;
 
 export default CountriesPage;
+
+export const Head: HeadFC = () => <SEO />;

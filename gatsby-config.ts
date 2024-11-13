@@ -1,5 +1,9 @@
 import type { GatsbyConfig } from "gatsby";
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Firstleaf Challenge`,
@@ -19,8 +23,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-segment-js`,
       options: {
-        prodKey: process.env.SEGMENT_PROD_KEY as string,
-        devKey: process.env.SEGMENT_DEV_KEY as string,
+        prodKey: process.env.GATSBY_SEGMENT_PROD_KEY as string,
+        devKey: process.env.GATSBY_SEGMENT_DEV_KEY as string,
       },
     },
     {

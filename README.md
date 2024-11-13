@@ -1,6 +1,7 @@
 # React Coding Challenge
 
 ## Description
+
 This project contains the basis for our coding challenge.
 
 It doesn't define any UI limitations in any way and only gives you the basic components for SEO/Links/Infinite Scrolling while creating a comfortable development environment to get started.
@@ -42,3 +43,19 @@ Complete at least 2 of the 3 challenges presented in the repo, make sure to asse
     - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
     - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
     - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+
+My Notes
+
+- Countdown
+  - Added tailwind
+  - Added shadcn for layout, which has radix behind the hood
+  - Extended the custom useProducts hook to have a centralized reducer for products and filters
+  - Refactored the product fetching to work with a local cache with a small revalidation logic
+  - Used lottie to display a user friendly loading state
+- TheBucket
+  - Worked on small fixes and improved the performance with memoization
+  - The requirements asked to not change the returns at all - so I literally followed that, that's why the UI isn't that good
+- Analytics
+  - Set up segment for analytics
+  - It may be used further to track events and send them to a lot of destinations, including google analytics, mixpanel, etc.
+  - Added a custom hook useAnalytics to centralize the analytics calls

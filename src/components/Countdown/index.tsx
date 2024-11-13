@@ -8,6 +8,7 @@ type CountdownProps = {
   label?: string;
   loop?: boolean;
   customClass?: string;
+  challenge?: string;
   onFinish?: () => void;
 };
 
@@ -16,6 +17,7 @@ export default function Countdown({
   label = "Reserving your wines for",
   loop = false,
   customClass = "",
+  challenge = "Promo",
   onFinish = () => {},
 }: CountdownProps) {
   const { track } = useAnalytics();
@@ -44,13 +46,13 @@ export default function Countdown({
 
     return () => {
       clearInterval(interval);
-      track("promoCountdownStopped", { challenge: "Promo", seconds });
+      track("countdownStopped", { challenge, seconds });
     };
   }, [loop, initialSeconds]);
 
   React.useEffect(() => {
     if (seconds === 0) {
-      track("promoCountdownFinished", { challenge: "Promo", seconds: 0 });
+      track("countdownFinished", { challenge, seconds: 0 });
       onFinish();
     }
   }, [seconds]);

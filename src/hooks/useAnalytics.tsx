@@ -18,6 +18,7 @@ export const useAnalytics = () => {
   }, []);
 
   const track = (eventName: string, params: Record<string, any>) => {
+    if (process.env.NODE_ENV === "test") return;
     analytics?.track(eventName, { ...params });
   };
 

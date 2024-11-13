@@ -29,17 +29,21 @@ const Bucket = memo(({ batchSize, onBatchFull, ...rest }: BucketProps) => {
 });
 
 const ThreeButtons = (): JSX.Element => {
+  const { track } = useAnalytics();
+
   const [batchCount, setBatchCount] = useState(0);
   const [timeIsUp, setTimeIsUp] = useState(false);
 
-  const handleFullBatch = useCallback(() => {
+  const handleFullBatch = () => {
+    const newBatchCount = batchCount + 1;
+    track("bucketBatchCount", { challenge: "Bucket", batchCount: newBatchCount });
     setBatchCount((current) => current + 1);
-  }, []);
+  }
 
   return (
     <>
     {timeIsUp && <h1>Total {batchCount}</h1>}
-    {!timeIsUp && !!batchCount && <Countdown key={(new Date()).toISOString()} seconds={5} label="" onFinish={() => setTimeIsUp(true)} />}
+    {!timeIsUp && !!batchCount && <Countdown key={(new Date()).toISOString()} seconds={5} label="" onFinish={() => setTimeIsUp(true)} challenge="Bucket" />}
     <Bucket onBatchFull={handleFullBatch} batchSize={3} disabled={timeIsUp} />
     </>
   );

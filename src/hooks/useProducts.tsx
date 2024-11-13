@@ -52,54 +52,54 @@ const ProductsContext = createContext<ProductsContextType | undefined>(
 export const ProductsProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(productsReducer, initialState);
 
-  // const fetchProducts = async () => {
-  //   const cachedProducts = window.localStorage.getItem("products");
-  //   const cachedTimestamp = window.localStorage.getItem("productsTimestamp");
-  //   const isStale = cachedTimestamp
-  //     ? Date.now() - parseInt(cachedTimestamp, 10) > 5 * 60 * 1000 // 5 minutes
-  //     : true;
+  const fetchProducts = async () => {
+    const cachedProducts = window.localStorage.getItem("products");
+    const cachedTimestamp = window.localStorage.getItem("productsTimestamp");
+    const isStale = cachedTimestamp
+      ? Date.now() - parseInt(cachedTimestamp, 10) > 5 * 60 * 1000 // 5 minutes
+      : true;
 
-  //   if (cachedProducts && !isStale) {
-  //     setTimeout(() => {
-  //       return JSON.parse(cachedProducts) as Array<Product>;
-  //     }, 1000); // Small delay to show the loader
-  //   }
+    if (cachedProducts && !isStale) {
+      setTimeout(() => {
+        return JSON.parse(cachedProducts) as Array<Product>;
+      }, 1000); // Small delay to show the loader
+    }
 
-  //   const products = (await fetch(
-  //     "https://my-json-server.typicode.com/YofretRios/jsondetails/products"
-  //   ).then((res) => res.json())) as Array<Product>;
+    const products = (await fetch(
+      "https://my-json-server.typicode.com/YofretRios/jsondetails/products"
+    ).then((res) => res.json())) as Array<Product>;
 
-  //   window.localStorage.setItem("products", JSON.stringify(products));
-  //   window.localStorage.setItem("productsTimestamp", Date.now().toString());
+    window.localStorage.setItem("products", JSON.stringify(products));
+    window.localStorage.setItem("productsTimestamp", Date.now().toString());
 
-  //   // Small delay to keep the loader for more time
-  //   // Note: This is only for this sample app, should not be used in a real app
-  //   await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Small delay to keep the loader for more time
+    // Note: This is only for this sample app, should not be used in a real app
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  //   return products;
-  // };
+    return products;
+  };
 
-  // const { data, isLoading } = useQuery("products", fetchProducts, {
-  //   initialData: [],
-  //   staleTime: 0,
-  //   cacheTime: 30 * 60 * 1000, // 30 minutes
-  //   refetchOnWindowFocus: true,
-  //   refetchOnReconnect: true,
-  // });
+  const { data, isLoading } = useQuery("products", fetchProducts, {
+    initialData: [],
+    staleTime: 0,
+    cacheTime: 30 * 60 * 1000, // 30 minutes
+    refetchOnWindowFocus: true,
+    refetchOnReconnect: true,
+  });
 
-  // useEffect(() => {
-  //   if (data) {
-  //     dispatch({ type: "SET_PRODUCTS", payload: data });
+  useEffect(() => {
+    if (data) {
+      dispatch({ type: "SET_PRODUCTS", payload: data });
 
-  //     if (state.products.length === 0) {
-  //       // Initialize only on first load
-  //       dispatch({ type: "INIT_FILTERED_PRODUCTS", payload: data });
-  //     }
-  //   }
-  // }, [data]);
+      if (state.products.length === 0) {
+        // Initialize only on first load
+        dispatch({ type: "INIT_FILTERED_PRODUCTS", payload: data });
+      }
+    }
+  }, [data]);
 
   return (
-    <ProductsContext.Provider value={{ state, dispatch, isLoading: true }}>
+    <ProductsContext.Provider value={{ state, dispatch, isLoading }}>
       {children}
     </ProductsContext.Provider>
   );

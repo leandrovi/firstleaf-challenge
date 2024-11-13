@@ -103,6 +103,9 @@ devDependencies:
   gatsby-plugin-postcss:
     specifier: ^6.14.0
     version: 6.14.0(gatsby@5.14.0)(postcss@8.4.49)(typescript@5.6.3)(webpack@5.96.1)
+  identity-obj-proxy:
+    specifier: ^3.0.0
+    version: 3.0.0
   jest:
     specifier: ^29.7.0
     version: 29.7.0(@types/node@22.9.0)
@@ -7606,6 +7609,10 @@ packages:
     dependencies:
       duplexer: 0.1.2
 
+  /harmony-reflect@1.6.2:
+    resolution: {integrity: sha512-HIp/n38R9kQjDEziXyDTuW3vvoxxyxjxFzXLrBr18uB47GnSt+G9D29fqrpM5ZkspMcPICud3XsBJQ4Y2URg8g==}
+    dev: true
+
   /has-bigints@1.0.2:
     resolution: {integrity: sha512-tSvCKtBr9lkF0Ex0aQiP9N+OpV4zi2r/Nee5VkRDbaqv35RLYMzbwQfFSZZH0kR+Rd6302UJZ2p/bJCEoR3VoQ==}
 
@@ -7766,6 +7773,13 @@ packages:
       postcss: ^8.1.0
     dependencies:
       postcss: 8.4.49
+
+  /identity-obj-proxy@3.0.0:
+    resolution: {integrity: sha512-00n6YnVHKrinT9t0d9+5yZC6UBNJANpYEQvL2LlX6Ab9lnmxzIRcEmTPuyGScvl1+jKuCICX1Z0Ab1pPKKdikA==}
+    engines: {node: '>=4'}
+    dependencies:
+      harmony-reflect: 1.6.2
+    dev: true
 
   /ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}

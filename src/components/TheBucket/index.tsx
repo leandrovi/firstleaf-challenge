@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 
 import { useAnalytics } from "@/hooks/useAnalytics";
 import * as styles from "./index.module.scss";
@@ -13,27 +13,19 @@ const Bucket = memo(({ batchSize, onBatchFull, ...rest }: BucketProps) => {
   const { track } = useAnalytics();
   const [count, setCount] = useState(0);
 
-  const updateCount = useCallback(() => {
-    setCount((current) => current + 1);
-  }, []);
-
-  useEffect(() => {
-    const batchFull = count % batchSize === 0 && count > 1;
-
-    if (batchFull) {
-      onBatchFull();
-    }
-
-    if (count > 0) {
-      track("bucketCount", { challenge: "Bucket", count });
-    }
-  }, [count, batchSize, onBatchFull, track]);
+  const updateCount = () => {
+    const newCount = count + 1;
+    const isBatchFull = newCount % batchSize === 0;
+    track("bucketCount", { challenge: "Bucket", count: newCount });
+    setCount(prev => prev + 1);
+    if (isBatchFull) onBatchFull();
+  }
 
   return (
     <button type="button" onClick={updateCount} className={styles.button} {...rest}>
         {count} glasses poured
     </button>
-);
+  );
 });
 
 const ThreeButtons = (): JSX.Element => {
@@ -46,9 +38,9 @@ const ThreeButtons = (): JSX.Element => {
 
   return (
     <>
-        {timeIsUp && <h1>Total {batchCount}</h1>}
-        {!timeIsUp && !!batchCount && <Countdown key={(new Date()).toISOString()} seconds={5} label="" onFinish={() => setTimeIsUp(true)} />}
-        <Bucket onBatchFull={handleFullBatch} batchSize={3} disabled={timeIsUp} />
+    {timeIsUp && <h1>Total {batchCount}</h1>}
+    {!timeIsUp && !!batchCount && <Countdown key={(new Date()).toISOString()} seconds={5} label="" onFinish={() => setTimeIsUp(true)} />}
+    <Bucket onBatchFull={handleFullBatch} batchSize={3} disabled={timeIsUp} />
     </>
   );
 };

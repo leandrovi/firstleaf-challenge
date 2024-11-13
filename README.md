@@ -46,6 +46,8 @@ Complete at least 2 of the 3 challenges presented in the repo, make sure to asse
 
 My Notes
 
+The app can be visited at: https://firstleaf-leandro.netlify.app/
+
 - Countdown
   - Added tailwind
   - Added shadcn for layout, which has radix behind the hood
@@ -55,7 +57,13 @@ My Notes
 - TheBucket
   - Worked on small fixes and improved the performance with memoization
   - The requirements asked to not change the returns at all - so I literally followed that, that's why the UI isn't that good
+- Countries
+  - Added infinite scrolling with react-window
+  - Data fetched during SSG and stored in the data layer
 - Analytics
   - Set up segment for analytics
   - It may be used further to track events and send them to a lot of destinations, including google analytics, mixpanel, etc.
   - Added a custom hook useAnalytics to centralize the analytics calls
+- General
+  - Sentry for error tracking
+  - Storybook for component development

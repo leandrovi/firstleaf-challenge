@@ -19,8 +19,21 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-segment-js`,
       options: {
-        prodKey: "zrHeASQ3uXHPAld7h8HFVPSYJh44YsGs",
-        devKey: "zrHeASQ3uXHPAld7h8HFVPSYJh44YsGs",
+        prodKey: process.env.SEGMENT_PROD_KEY as string,
+        devKey: process.env.SEGMENT_DEV_KEY as string,
+      },
+    },
+    {
+      resolve: "@sentry/gatsby",
+    },
+    {
+      resolve: "@sentry/gatsby",
+      options: {
+        dsn: "",
+        sampleRate: 0.7,
+        environment: process.env.NODE_ENV,
+        enabled: !!process.env.SENTRY_DSN,
+        tracesSampleRate: 1.0,
       },
     },
   ],

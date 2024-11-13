@@ -12,10 +12,16 @@ module.exports = {
       animation: {
         blink: "blink 1s linear infinite",
       },
+      opacity: {
+        95: "0.92",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        custom: "0px 4px 30px 0px rgba(0, 0, 0, 0.17)",
       },
       colors: {
         background: "hsl(var(--background))",

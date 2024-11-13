@@ -29,11 +29,12 @@ const ProductGrid = () => {
                   "rounded-tl-lg rounded-tr-lg rounded-bl-none md:rounded-tr-none md:rounded-bl-lg lg:rounded-tr-lg lg:rounded-bl-none xl:rounded-tr-none xl:rounded-bl-lg" // Manage borders radius
                 )}
               >
+                {/* TODO: use dynamic image */}
                 <img
                   src={product.images}
                   alt={product.name}
                   className="w-full h-48 object-contain"
-                />
+                /> 
               </div>
               <div className="p-6 flex-1 flex flex-col gap-3 justify-between mx-auto md:mx-0 md:w-full">
                 <div className="flex flex-col gap-3">

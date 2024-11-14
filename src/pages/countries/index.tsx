@@ -22,7 +22,7 @@ const CountriesPage = ({ data }: CountriesPageProps) => {
         className="w-full h-full object-cover object-top absolute bottom-0 left-0 right-0 top-[30vh]"
       />
 
-      <section className="xl:container mx-auto w-full px-6 pt-12 pb-20 text-primary z-10">
+      <section className="xl:container mx-auto w-full py-8 md:py-20 text-primary z-10 px-6">
         <div className="flex flex-col gap-2.5">
           <h1 className="text-4xl font-medium tracking-wide">
             Countries statistics
@@ -33,7 +33,7 @@ const CountriesPage = ({ data }: CountriesPageProps) => {
         </div>
       </section>
 
-      <section className="px-8 pt-8 w-full max-w-[600px] h-[545px] mx-auto z-10 bg-[rgba(26,26,26,0.65)] rounded-2xl border border-[rgba(255,255,255,0.15)] shadow-custom backdrop-blur-[30px]">
+      <section className="mx-6 pt-8 md:w-full max-w-[600px] h-[445px] md:mx-auto z-10 bg-[rgba(26,26,26,0.65)] rounded-2xl border border-[rgba(255,255,255,0.15)] shadow-custom backdrop-blur-[30px]">
         <CountriesList initialData={data} />
       </section>
     </main>

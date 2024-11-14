@@ -93,7 +93,7 @@ const CountryTemplate = ({ data }: { data: { country: Country } }) => {
   }, []);
 
   return (
-    <main className="dark bg-[#262626] min-h-screen flex flex-col relative w-full text-primary gap-4 px-8">
+    <main className="dark bg-[#262626] min-h-screen flex flex-col relative w-full text-primary gap-4">
       <CountriesHeader />
 
       <div className="absolute bottom-0 left-0 right-0 top-[30vh]">
@@ -106,7 +106,7 @@ const CountryTemplate = ({ data }: { data: { country: Country } }) => {
 
       <div className="xl:container mx-auto w-full px-6 pt-12 pb-20 text-primary z-10">
         <div className="flex flex-col gap-2.5">
-          <Button variant="ghost" size="icon" asChild>
+          <Button variant="ghost" size="icon" asChild className="px-8">
             <Link to="/countries" className="text-muted-foreground">
               <ArrowLeft size={16} /> Go Back
             </Link>
@@ -149,7 +149,7 @@ const CountryTemplate = ({ data }: { data: { country: Country } }) => {
             </div>
           </div>
 
-          <div className="flex flex-row items-baseline gap-2">
+          <div className="flex flex-col md:flex-row items-baseline gap-2">
             <p className="text-5xl font-semibold">
               {country.population.toLocaleString()}
             </p>

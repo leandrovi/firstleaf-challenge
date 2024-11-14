@@ -70,7 +70,7 @@ export default function CountriesList({ initialData }: CountriesListProps) {
 
   return (
     <>
-      <div className="px-8 flex flex-col items-start">
+      <div className="flex flex-col items-start px-8">
         <h3 className="font-thin mb-4">List of Countries</h3>
 
         <div className="flex items-baseline gap-1">
@@ -81,7 +81,7 @@ export default function CountriesList({ initialData }: CountriesListProps) {
       </div>
 
       <FixedSizeList
-        height={400}
+        height={300}
         width="100%"
         itemCount={countries.length + 1}
         itemSize={65}

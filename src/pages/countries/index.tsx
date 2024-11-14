@@ -42,7 +42,7 @@ const CountriesPage = ({ data }: CountriesPageProps) => {
 
 export const query = graphql`
   query {
-    allCountry(limit: 20) {
+    allCountry {
       nodes {
         id
         slug

@@ -125,7 +125,9 @@ const CountryTemplate = ({ data }: { data: { country: Country } }) => {
             <p className="font-thin tracking-wide">
               Native name:{" "}
               <span className="text-muted-foreground">
-                {country.name.nativeName[0].common}
+                {country.name.nativeName[0] && country.name.nativeName[0].common
+                  ? country.name.nativeName[0].common
+                  : ""}
               </span>
             </p>
           </div>

@@ -34,9 +34,9 @@ const ProductGrid = () => {
                   src={product.images}
                   alt={product.name}
                   className="w-full h-48 object-contain"
-                /> 
+                />
               </div>
-              <div className="p-6 flex-1 flex flex-col gap-3 justify-between mx-auto md:mx-0 md:w-full">
+              <div className="p-6 flex-1 flex flex-col gap-3 justify-between mx-auto md:mx-0 md:w-full w-full">
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
                     <span className="text-tag bg-tag-foreground rounded-full px-2 py-1 w-fit text-xs font-medium">

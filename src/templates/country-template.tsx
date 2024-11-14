@@ -65,11 +65,11 @@ const CountryTemplate = ({ data }: { data: { country: Country } }) => {
         stylers: [{ color: "#746855" }, { weight: 1 }],
       },
     ],
-    disableDefaultUI: true, // Removes all default UI controls
-    mapTypeControl: false, // Specifically removes the Map/Satellite toggle
-    streetViewControl: false, // Removes the street view pegman
-    fullscreenControl: false, // Removes the fullscreen button
-    zoomControl: false, // Removes the zoom controls
+    disableDefaultUI: true,
+    mapTypeControl: false,
+    streetViewControl: false,
+    fullscreenControl: false,
+    zoomControl: false,
   };
 
   const onLoadMap = React.useCallback(
@@ -79,9 +79,8 @@ const CountryTemplate = ({ data }: { data: { country: Country } }) => {
         lng: country.latlng[1],
       };
 
-      // Set center and zoom directly
       map.setCenter(center);
-      map.setZoom(5); // Adjust zoom level as needed
+      map.setZoom(5);
 
       setMap(map);
     },

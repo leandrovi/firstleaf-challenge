@@ -93,7 +93,7 @@ const CountryTemplate = ({ data }: { data: { country: Country } }) => {
   }, []);
 
   return (
-    <main className="dark bg-[#262626] min-h-screen flex flex-col relative w-full text-primary gap-4">
+    <main className="dark bg-[#262626] min-h-screen flex flex-col relative w-full text-primary gap-4 pb-8">
       <CountriesHeader />
 
       <div className="absolute bottom-0 left-0 right-0 top-[30vh]">

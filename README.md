@@ -78,13 +78,13 @@ Experience the application live at: [https://firstleaf-leandro.netlify.app/](htt
 2. Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 3. Start the development server:
 
 ```bash
-npm run develop
+pnpm run develop
 ```
 
 4. Visit `http://localhost:8000`

@@ -1,4 +1,6 @@
-# 🚀 React Engineering Challenge
+# 🚀 Firstleaf Frontend Engineering Challenge
+
+Built with ❤️ by [Leandro Vieira](https://linkedin.com/in/leandrofv).
 
 ## 🎯 Project Highlights
 
@@ -6,7 +8,7 @@ This project demonstrates modern React development practices, performance optimi
 
 ### 🎨 Countdown Challenge
 
-![Countdown Demo](/.github/images/challenge-countdown.png)
+![Countdown Demo](/.github/images/challenge-promo.png)
 
 - **Modern UI Framework**: Implemented with Tailwind CSS and shadcn/ui (powered by Radix UI)
 - **State Management**:
@@ -99,4 +101,4 @@ For detailed technical documentation about the frameworks and libraries used:
 
 ---
 
-Built with ❤️ using React, Gatsby, and modern web technologies.
+Built with ❤️ by [Leandro Vieira](https://linkedin.com/in/leandrofv), using React, Gatsby, and modern web technologies.
